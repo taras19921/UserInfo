@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - journal@localhost" uuid="a68eec6e-1028-4376-a435-1fcfbb5ae554">
+    <database-info product="MySQL" version="5.6.25-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="journal"/>
+    <table name="answers" schema="" catalog="journal" type="TABLE">
+      <column name="answers_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="message" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="petitions_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="users_user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="answers_id"/>
+      <foreign-key name="fk_answers_petitions1" columns="petitions_id" ref-table="applications" ref-schema="" ref-catalog="journal" ref-columns="application_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_answers_users1" columns="users_user_id" ref-table="users" ref-schema="" ref-catalog="journal" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_answers_petitions1_idx" unique="false" columns="petitions_id"/>
+      <index name="fk_answers_users1_idx" unique="false" columns="users_user_id"/>
+    </table>
+    <table name="applications" schema="" catalog="journal" type="TABLE">
+      <column name="application_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="issue" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="message" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="status" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_attention" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="priority" sqlType="VARCHAR" precision="12" scale="0" nullable="false" jdbcType="12"/>
+      <column name="users_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="application_id"/>
+      <foreign-key name="fk_petitions_users" columns="users_id" ref-table="users" ref-schema="" ref-catalog="journal" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_answers_petitions1" table="answers" schema="" catalog="journal" columns="petitions_id"/>
+      <index name="fk_petitions_users_idx" unique="false" columns="users_id"/>
+    </table>
+    <table name="users" schema="" catalog="journal" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_name" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="firstname" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="70" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="fk_answers_users1" table="answers" schema="" catalog="journal" columns="users_user_id"/>
+      <exported-key name="fk_petitions_users" table="applications" schema="" catalog="journal" columns="users_id"/>
+      <index name="document_UNIQUE" unique="true" columns="user_name"/>
+      <index name="email_UNIQUE" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>

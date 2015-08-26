@@ -1,0 +1,72 @@
+body {
+    background-color: #eee;
+    font-family: helvetica;
+}
+
+    #container {
+        width: 500px;
+        background-color: blue;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 5px;
+    }
+
+    .green {
+        font-weight: bold;
+        color: green;
+    }
+
+    .message {
+        margin-bottom: 10px;
+    }
+
+    label {
+        width: 70px;
+        display: inline-block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .error {
+        color: red;
+        font-size: 0.8em;
+    }
+
+    table {
+        width: 500px;
+        background: chocolate;
+        border: 1px solid gray;
+        border-collapse: collapse;
+        color: indigo;
+        font: normal 12px verdana, arial, helvetica, sans-serif;
+        text-align: center;
+    }
+
+    caption {
+        border: 1px solid aqua;
+        color: aqua;
+        font-weight: bold;
+        letter-spacing: 20px;
+        padding: 6px 4px 8px 0px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    td, th {
+        color: cornflowerblue;
+        padding: .4em;
+    }
+
+    tr {
+        border:1px dotted cornflowerblue;
+    }
+
+    thead th, tfoot th {
+        background: chocolate;
+        padding: 3px 10px 3px 10px;
+        text-align: center;
+        text-transform: uppercase;
+    }
