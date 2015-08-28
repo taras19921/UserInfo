@@ -10,8 +10,6 @@
 
     <link href="${pageContext.request.contextPath}/resources/css/style.css">
 
-    <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
     <script src="<c:url value="/resources/js/addUser.js"/>"></script>
 
 </head>
